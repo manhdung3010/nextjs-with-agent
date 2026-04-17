@@ -1,5 +1,18 @@
-<!-- BEGIN:nextjs-agent-rules -->
-# This is NOT the Next.js you know
+# AGENTS.md
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
-<!-- END:nextjs-agent-rules -->
+Base guardrails for this Next.js template.
+
+## Always-on rules
+
+- Prefer Server Components; add `"use client"` only when necessary.
+- Keep route handlers typed and validate payloads.
+- Never commit secrets; keep `.env.example` updated.
+- Run quality checks before merge.
+
+## Skill map
+
+- Feature implementation flow: `$nextjs-feature-implementation`
+- API schema and contracts: `$api-contract-zod`
+- Test workflow: `$testing-playwright-vitest`
+- Performance tuning: `$performance-checklist`
+- Release quality gate: `$release-ci-checklist`

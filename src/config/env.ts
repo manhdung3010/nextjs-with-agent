@@ -7,6 +7,9 @@ const serverSchema = z.object({
   NEXT_PUBLIC_APP_NAME: z.string().min(1).default("Next.js with Agent"),
   NEXT_PUBLIC_APP_URL: z.string().url().default("http://localhost:3000"),
   NEXT_PUBLIC_SENTRY_DSN: z.string().url().optional(),
+  SENTRY_AUTH_TOKEN: z.string().optional(),
+  SENTRY_ORG: z.string().optional(),
+  SENTRY_PROJECT: z.string().optional(),
 });
 
 const parsed = serverSchema.safeParse({
@@ -14,6 +17,9 @@ const parsed = serverSchema.safeParse({
   NEXT_PUBLIC_APP_NAME: process.env.NEXT_PUBLIC_APP_NAME,
   NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
   NEXT_PUBLIC_SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN,
+  SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,
+  SENTRY_ORG: process.env.SENTRY_ORG,
+  SENTRY_PROJECT: process.env.SENTRY_PROJECT,
 });
 
 if (!parsed.success) {

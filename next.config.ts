@@ -30,6 +30,9 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  // Produces a standalone build for minimal Docker images
+  // (copies only the required server files, not all node_modules)
+  output: "standalone",
   async headers() {
     return [
       {

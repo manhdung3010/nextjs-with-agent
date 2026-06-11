@@ -11,7 +11,7 @@ Thanks for contributing to this base template.
 
 ```bash
 pnpm install
-cp .env.example .env.local
+cp .env.example .env
 pnpm dev
 ```
 

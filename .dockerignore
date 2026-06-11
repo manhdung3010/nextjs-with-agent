@@ -1,0 +1,38 @@
+.git
+.gitignore
+.github
+.agents
+.husky
+.editorconfig
+.nvmrc
+.prettierrc
+.prettierignore
+
+# Dev artefacts
+node_modules
+.next
+out
+
+# Test files
+tests
+e2e
+coverage
+playwright-report
+test-results
+
+# Env files (never bake secrets into image)
+.env
+.env.*
+!.env.example
+
+# Docs
+*.md
+LICENSE
+
+# Editor
+.vscode
+.idea
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,27 @@
+# docker-compose.prod.yml — Production
+#
+# Usage:
+#   docker compose -f docker-compose.prod.yml up --build -d
+#   docker compose -f docker-compose.prod.yml logs -f
+#   docker compose -f docker-compose.prod.yml down
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+      - NEXT_TELEMETRY_DISABLED=1
+    restart: always
+    # Minimal resource footprint; adjust per your host
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 512M

@@ -1,0 +1,26 @@
+# docker-compose.yml — Local development
+# Mounts source files so hot-reload works inside the container.
+#
+# Usage:
+#   docker compose up           # start
+#   docker compose up --build   # rebuild after dep changes
+#   docker compose down         # stop
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      # Mount source for hot-reload (exclude node_modules / .next)
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=development
+      - NEXT_TELEMETRY_DISABLED=1
+    restart: unless-stopped

@@ -12,6 +12,12 @@ export default defineConfig({
       provider: "v8",
       reporter: ["text", "html"],
       exclude: ["node_modules/", ".next/", "playwright.config.ts"],
+      thresholds: {
+        lines: 80,
+        functions: 80,
+        branches: 80,
+        statements: 80,
+      },
     },
   },
   resolve: {

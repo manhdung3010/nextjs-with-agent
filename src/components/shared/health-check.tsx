@@ -8,7 +8,7 @@ import { type HealthResponse } from "@/types/api";
 
 export function HealthCheck() {
   const { data, isLoading, isError } = useQuery({
-    queryKey: queryKeys.health,
+    queryKey: queryKeys.health.all(),
     queryFn: () => httpClient<HealthResponse>("/api/health"),
   });
 

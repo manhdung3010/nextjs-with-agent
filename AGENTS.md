@@ -18,6 +18,9 @@ Base guardrails for this Next.js template.
 - Test workflow: `$testing-playwright-vitest`
 - Performance tuning: `$performance-checklist`
 - Release quality gate: `$release-ci-checklist`
+- Docker dev & production: `$docker-workflow`
+- Zustand state management: `$state-management`
+- Error handling patterns: `$error-handling`
 
 ### External skills (Vercel)
 

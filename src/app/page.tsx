@@ -1,4 +1,7 @@
 import { HealthCheck } from "@/components/shared/health-check";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { InteractiveDemo } from "@/components/home/interactive-demo";
 
 export default function Home() {
   const highlights = [
@@ -46,28 +49,39 @@ export default function Home() {
 
       <HealthCheck />
 
+      <InteractiveDemo />
+
       <section className="grid gap-4 sm:grid-cols-3">
         {highlights.map((item) => (
-          <article
-            key={item.title}
-            className="rounded-2xl border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900"
-          >
-            <h2 className="text-base font-semibold">{item.title}</h2>
-            <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-300">
-              {item.description}
-            </p>
-          </article>
+          <Card key={item.title}>
+            <CardHeader className="pb-0">
+              <CardTitle className="text-base font-semibold">
+                {item.title}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-zinc-600 dark:text-zinc-300">
+                {item.description}
+              </p>
+            </CardContent>
+          </Card>
         ))}
       </section>
 
-      <section className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
-        <h2 className="text-lg font-semibold">Tech Stack nổi bật</h2>
-        <ul className="mt-4 grid list-disc gap-2 pl-5 text-sm text-zinc-600 sm:grid-cols-2 dark:text-zinc-300">
-          {technologies.map((tech) => (
-            <li key={tech}>{tech}</li>
-          ))}
-        </ul>
-      </section>
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-lg">Tech Stack nổi bật</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="flex flex-wrap gap-2">
+            {technologies.map((tech) => (
+              <Badge key={tech} variant="secondary">
+                {tech}
+              </Badge>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
 
       <section className="rounded-2xl border border-blue-200 bg-blue-50 p-6 dark:border-blue-900 dark:bg-blue-950/30">
         <h2 className="text-lg font-semibold text-blue-900 dark:text-blue-100">
